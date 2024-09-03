@@ -1,13 +1,43 @@
 
+import { useEffect } from 'react'
 import './App.css'
+import { Key } from './components/keys'
+
+import {teclado} from './components/keys/teclas'
 
 function App() {
 
+  useEffect(() =>{
+    
+    const handleKeyDown = (event) => {
+        event.preventDefault();
+
+        console.log(`Tecla pressionada: ${event.key}`);
+    };
+
+    window.addEventListener('keydown',handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown',handleKeyDown);
+    };
+
+  },[]);
+
 
   return (
-    <>
-      <p className="text-3xl text-blue-300">Hello Moto</p>
-    </>
+    <div className="flex items-center justify-center">
+        <div className="flex items-start justify-start mt-8 lg:max-w-[1000px] md:max-w-[800px] min-h-[300px] bg-gray-900">
+
+            {
+              teclado.map((tecla) =>{
+
+               return ( <Key key={tecla.id} text={tecla.label} />)
+              })
+            }
+            
+        </div>
+    </div>
+
   )
 }
 
