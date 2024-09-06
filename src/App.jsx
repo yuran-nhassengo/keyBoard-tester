@@ -7,6 +7,7 @@ import {teclado} from './components/keys/teclas'
 
 function App() {
 
+  
   useEffect(() =>{
     
     const handleKeyDown = (event) => {
@@ -25,8 +26,8 @@ function App() {
 
 
   return (
-    <div className="flex items-center justify-center">
-        <div className="flex items-start justify-start mt-8 lg:max-w-[1000px] md:max-w-[800px] min-h-[300px] bg-gray-900">
+    <div className="flex  justify-center">
+        <div className="flex flex-wrap justify-start mt-8 w-[1000px] min-h-[280px] bg-gray-900">
 
             {
               teclado.map((tecla) =>{
